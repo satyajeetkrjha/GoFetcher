@@ -1,1 +1,0 @@
-module worker-go-pool

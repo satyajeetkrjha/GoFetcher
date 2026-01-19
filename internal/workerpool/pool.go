@@ -3,7 +3,7 @@ package workerpool
 import (
 	"context"
 	"sync"
-	"worker-go-pool/fetch"
+	"worker-go-pool/internal/fetch"
 )
 
 type WorkFn func(ctx context.Context, job fetch.Job) fetch.Result
