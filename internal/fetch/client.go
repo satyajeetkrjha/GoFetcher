@@ -2,6 +2,7 @@ package fetch
 
 import (
 	"context"
+	"io"
 	"net/http"
 	"time"
 )
@@ -41,7 +42,7 @@ func FetchOnce(ctx context.Context, job Job) Result {
 
 	result.Status = resp.StatusCode
 
-	n, readErr := resp.Body.Read(make([]byte, 4567))
+	n, readErr := io.Copy(io.Discard, resp.Body)
 	result.Bytes = int64(n)
 
 	if readErr != nil {
